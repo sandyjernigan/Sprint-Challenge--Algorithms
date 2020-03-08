@@ -8,8 +8,10 @@ a) O(n)
 will run `n` times before `a` will be greater than or equal to `n` to the 3rd power.
 Therefore, this is a linear formula. The runtime grows at the same rate as the input.
 
-b)
+b) O(c^n)
 
+As the input grows the runtime is growing at a much faster rate. 
+if `n` is 2 this will run twice, however if `n` is 100 it'll run 700 times and if `n` is 200 it'll fun 1600 times. 
 
 c)
 
