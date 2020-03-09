@@ -99,7 +99,6 @@ class SortingRobot:
 
         # Check if Light is off and Check if robot at the beginning of the list
         if self.light_is_on() == False and self.can_move_left() == False:
-            print("Light Off, at beginning")
 
             # Turn Light on, so we know Robot is on and sorting. Turn off when everything is sorted.
             self.set_light_on()
@@ -107,29 +106,40 @@ class SortingRobot:
             # Pick up first item
             self.swap_item()
 
-
-            while self.can_move_right():
-                # Move to the right
-                self.move_right()
-                
-                # Compare item in hand with the item in the list
-                if self.compare_item() < 0:
-                    # If less than item in hand pick up the new item
-                    self.swap_item()
-
-                # Contiune to end of list
-                self.move_right()
+        while self.can_move_right():
+            # Move to the right
+            self.move_right()
             
-                # This should put the lowest item in hand
+            # Compare item in hand with the item in the list
+            if self.compare_item() == None or self.compare_item() > 0:
+
+                # If less than item in hand pick up the new item
+                self.swap_item()
+
+            # Contiune to end of list
+            self.move_right()
+        
+            # This should put the lowest item in hand
 
         # Return to beginning of the list
+        while self.can_move_left():
+            self.move_left()
+    
         # Check if item is in list, if None then drop item in hand into list.
+        while self.can_move_right():
 
-        # Begin Compare again
+            if self.compare_item() == None:
+                self.swap_item()
 
+                # Begin Compare again
+                return self.sort()
+
+            # Move to the right
+            self.move_right()
+        
         # Once last object is None, drop item (should be greatest value) and turn light OFF
-
-        pass
+        if self.can_move_right() == False:
+            self.swap_item()
 
 
 if __name__ == "__main__":
