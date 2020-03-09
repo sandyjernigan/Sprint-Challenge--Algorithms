@@ -96,20 +96,10 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        
-        # You may use any pre-defined robot methods.
-        # You may NOT modify any pre-defined robot methods.
-        # You may use logical operators. (if, and, or, not, etc.)
-        # You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
-        # You may use iterators. (while, for, break, continue)
-        # You may NOT store any variables. (=)
-        # You may NOT access any instance variables directly. (self._anything)
-        # You may NOT use any Python libraries or class methods. (sorted(), etc.)
-        # You may define robot helper methods, as long as they follow all the rule
 
-        # Check if robot at the beginning of the list
-        if self.can_move_left == False:
-            print("Beginning of List")
+        # Check if Light is off and Check if robot at the beginning of the list
+        if self.light_is_on() == False and self.can_move_left() == False:
+            print("Light Off, at beginning")
 
             # Turn Light on, so we know Robot is on and sorting. Turn off when everything is sorted.
         
@@ -142,4 +132,5 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
+    #print(robot.sort())
     print(robot._list)
