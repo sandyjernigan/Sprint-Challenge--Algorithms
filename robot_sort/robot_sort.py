@@ -138,7 +138,7 @@ class SortingRobot:
         # Once last object is None, drop item (should be greatest value) and turn light OFF
         if self.can_move_right() == False:
             self.swap_item()
-
+            self.set_light_off()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -149,5 +149,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    #print(robot.sort())
     print(robot._list)
