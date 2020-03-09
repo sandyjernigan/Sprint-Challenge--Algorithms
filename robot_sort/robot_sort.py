@@ -116,9 +116,7 @@ class SortingRobot:
                 # If less than item in hand pick up the new item
                 self.swap_item()
 
-            # Contiune to end of list
-            self.move_right()
-        
+            # Contiune to end of list        
             # This should put the lowest item in hand
 
         # Return to beginning of the list
