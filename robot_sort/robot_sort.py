@@ -96,7 +96,40 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        
+        # You may use any pre-defined robot methods.
+        # You may NOT modify any pre-defined robot methods.
+        # You may use logical operators. (if, and, or, not, etc.)
+        # You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+        # You may use iterators. (while, for, break, continue)
+        # You may NOT store any variables. (=)
+        # You may NOT access any instance variables directly. (self._anything)
+        # You may NOT use any Python libraries or class methods. (sorted(), etc.)
+        # You may define robot helper methods, as long as they follow all the rule
+
+        # Check if robot at the beginning of the list
+        if self.can_move_left == False:
+            print("Beginning of List")
+
+            # Turn Light on, so we know Robot is on and sorting. Turn off when everything is sorted.
+        
+            # Pick up first item
+            # self.swap_item
+
+        # Compare item in hand with the item in the list
+
+        # If less than item in hand pick up the new item
+        # Move right and Contiune to end of list
+
+            # This should put the lowest item in hand
+
+        # Return to beginning of the list
+        # Check if item is in list, if None then drop item in hand into list.
+
+        # Begin Compare again
+
+        # Once last object is None, drop item (should be greatest value) and turn light OFF
+
         pass
 
 
