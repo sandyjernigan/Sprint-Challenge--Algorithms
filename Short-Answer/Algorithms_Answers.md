@@ -20,4 +20,56 @@ Therefore, this is a linear formula. The runtime grows at the same rate as the i
 
 ## Exercise II
 
+Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
+
+### You've got to crack a few eggs to make an omelette
+
+    def dropEgg(n):
+      > Suppose that you have an n-story building and plenty of eggs.
+      > `n` will be the number of stories of the building. Assume this will be a positive integer
+
+      > Start Out with the egg isn't broken
+      brokenEgg = FALSE
+
+      > Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f.      
+      > `f` will the floor
+      > `breakpoint` is the floor in which the egg will break if it is dropped at that floor
+
+      if f >= breakPoint:
+
+        > the egg will break
+        brokenEgg = TRUE
+
+        > If less than the floor at which the egg will break, the egg doesn't get broken. This is already set to FALSE so no change needs to be made.
+
+      > Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
+      > # One idea to determine the floor at which the egg will break is to start at the halfway point and see if the egg breaks.
+
+### pseudocode
+    def dropEgg(n):
+      brokenEgg = FALSE
+      lowestBreakFloor = 0 # This will be the lowest tested floor that egg broke
+      highestSafeFloor = 0 # This will be the highest tested floor that egg did not break
+
+      half = len(n) // 2 # get first halfway point
+
+      while (lowestBreakFloor - highestSafeFloor != 1):
+
+        testFloor = half
+
+        if (at testFloor a dropped Egg returns broken egg):
+          brokenEgg = TRUE
+          lowestBreakFloor = testFloor
+
+        else:
+          brokenEgg = FALSE
+          highestSafeFloor = testFloor
+        
+        testFloor = lowestBreakFloor - ((lowestBreakFloor - highestSafeFloor) // 2) # Find next halfway between the highest safe floor and the lowest break floor and test again
+
+      breakPoint = lowestBreakFloor
+      return breakPoint
+      
+      
+
 
