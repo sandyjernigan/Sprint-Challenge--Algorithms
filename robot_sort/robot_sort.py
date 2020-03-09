@@ -102,16 +102,23 @@ class SortingRobot:
             print("Light Off, at beginning")
 
             # Turn Light on, so we know Robot is on and sorting. Turn off when everything is sorted.
+            self.set_light_on()
         
             # Pick up first item
-            # self.swap_item
+            self.swap_item()
 
-        # Compare item in hand with the item in the list
+            # Move to the right
+            self.move_right()
 
-        # If less than item in hand pick up the new item
-        # Move right and Contiune to end of list
+            # Compare item in hand with the item in the list
+            if self.compare_item() < 0:
+                # If less than item in hand pick up the new item
+                self.swap_item()
 
-            # This should put the lowest item in hand
+            # Move right and Contiune to end of list
+            self.move_right()
+            
+        # This should put the lowest item in hand
 
         # Return to beginning of the list
         # Check if item is in list, if None then drop item in hand into list.
