@@ -70,6 +70,5 @@ Write out your proposed algorithm in plain English or pseudocode AND give the ru
       breakPoint = lowestBreakFloor
       return breakPoint
       
-      
-
-
+### Logarithmic O(log n)
+This runtime should be slightly slower rate than the size of the input.
