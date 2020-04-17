@@ -96,9 +96,49 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
 
+        # Check if Light is off and Check if robot at the beginning of the list
+        if self.light_is_on() == False and self.can_move_left() == False:
+
+            # Turn Light on, so we know Robot is on and sorting. Turn off when everything is sorted.
+            self.set_light_on()
+        
+            # Pick up first item
+            self.swap_item()
+
+        while self.can_move_right():
+            # Move to the right
+            self.move_right()
+            
+            # Compare item in hand with the item in the list
+            if self.compare_item() == None or self.compare_item() > 0:
+
+                # If less than item in hand pick up the new item
+                self.swap_item()
+
+            # Contiune to end of list        
+            # This should put the lowest item in hand
+
+        # Return to beginning of the list
+        while self.can_move_left():
+            self.move_left()
+    
+        # Check if item is in list, if None then drop item in hand into list.
+        while self.can_move_right():
+
+            if self.compare_item() == None:
+                self.swap_item()
+
+                # Begin Compare again
+                return self.sort()
+
+            # Move to the right
+            self.move_right()
+        
+        # Once last object is None, drop item (should be greatest value) and turn light OFF
+        if self.can_move_right() == False:
+            self.swap_item()
+            self.set_light_off()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
